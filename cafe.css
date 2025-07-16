@@ -1,0 +1,54 @@
+body{
+    background-color: lightblue;
+    margin: 0;
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+@font-face {
+    font-family: 'Milky';
+    src: url('milky.ttF') format('truetype');
+}
+
+svg{
+    max-width: 600px;
+    width: 100%;
+    height: 150px;
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* space between elements */
+}
+
+text{
+    font-size: 36px;
+    fill: #FFFABD;
+    font-family: 'Milk', sans-serif;
+}
+.rat{
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    margin: 0 auto;
+    background-color: #FFFABD;
+    border: none;
+    border-radius: 10px;
+    width: 100px;
+    height: 30px;
+    font-family: 'Kingo',sans-serif;
+}
