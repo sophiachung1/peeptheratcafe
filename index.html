@@ -1,41 +1,29 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
     <title>cafe quiz</title>
     <link rel="stylesheet" href="cafe.css">
 </head>
 
 <body>
-    
-    <!-- <svg viewBox="0 0 600 200" width="100%" height="150">
-        <defs>
-            <path id="semi-circle" d="M 100 150 A 200 200 0 0 1 500 150"/>
-        </defs>
-        <text text-anchor="middle">
-            <textPath href="#semi-circle" startoffset="50%">
-                Peep the Rat Cafe
-            </textPath>
-        </text>
-    
-    </svg> -->
-    <div class="wrapper">
-    <svg viewBox="0 0 800 200" width="100%" height="500">
-  <defs>
-    <!-- Adjust arc to draw inside visible area -->
-    <path id="semi-circle" d="M 100 200 A 200 200 0 0 1 500 200" />
-  </defs>
-  <text text-anchor="middle" font-size="36" fill="#FFFABD" font-family="Milky, sans-serif">
-    <textPath href="#semi-circle" startOffset="50%">
-      peep the rat cafe
-    </textPath>
-  </text>
-</svg>
+  <div class="wrapper">
+    <h1>peep the rat cafe</h1>
+ <button class="start-button" onclick="startGame()">Start</button>
+ 
+ <div class="quiz-container" style="display: none;">
+    <div id="question-text"></div>
+   <div class="image">
+    <img />
+   </div>
+
+   <div id="choices-container"></div>
+   <div id="quiz-result"></div>
 </div>
 
-<div>
-    <img class="rat" alt="cute rat" src="download.jpg">
 </div>
 
-<button>start</button>
+<script src="game.js"></script>
 </body>
 </html>
 
