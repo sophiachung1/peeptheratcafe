@@ -10,20 +10,31 @@ const drinks = {
   "Black Sesame Latte": 0
 };
 
+const drinkImages = {
+  "Matcha Latte": "results-img/matcha.jpeg",
+  "Strawberry Matcha": "results-img/strawberry.jpeg",
+  "Injeolmi Matcha": "results-img/injeolmi.jpeg",
+  "Blueberry Matcha Latte": "results-img/bluematcha.jpeg",
+  "Banana Matcha": "results-img/banana.jpeg",
+  "Hojicha Latte": "results-img/hojicha.jpeg",
+  "Einspanner Latte": "results-img/einspanner.jpeg",
+  "Black Sesame Latte": "results-img/blacksesame.jpeg"
+};
+
 const questions = [
     {
         question:"You enter into a cafe and see rats behind the counter.",
-        "image":"",
+        image:"img/cafe.jpg",
         choices:[
         {text:"Rats?? This seems unhygienic…", drinks: ["Black Sesame Latte", "Matcha Latte", "Einspanner Latte"]},
-        {text:"Oh, how cute! I bet they make the best coffee.", drinks: ["Strawberry Matcha", "Blueberry Matcha"]},
+        {text:"Oh, how cute! I bet they make the best coffee.", drinks: ["Strawberry Matcha", "Blueberry Matcha Latte"]},
         {text:"Well, I guess rats know good food. I'll give it a try", drinks: ["Blueberry Matcha Latte"]},
         {text:"Are they using tiny tools to make my coffee? I need to see this!", drinks: ["Injeolmi Matcha", "Banana Matcha"]},
         ]
     },
      {
         question:"You go up the counter and read the menu. You order...",
-        "image":"",
+        image:"img/menu.jpg",
         choices:[
         {text:"Rat-uccino", drinks: ["Black Sesame Latte", "Einspanner Latte"]},
         {text:"Nutty latte", drinks: ["Injeolmi Matcha", "Hojicha Latte"]},
@@ -33,7 +44,7 @@ const questions = [
     },
     {
         question:"Squeak squeak squeak! Three rats approach you and start taking you somewhere ",
-        "image":"",
+        image:"img/rats.jpg",
         choices:[
         {text:"Yay! A new adventure", drinks: ["Blueberry Matcha Latte", "Strawberry Matcha", "Injeolmi Matcha"]},
         {text:"Are they leading me to a secret cheese vault?", drinks: ["Einspanner Latte", "Blueberry Matcha Latte"]},
@@ -43,7 +54,7 @@ const questions = [
     },
     {
         question:"You are suddenly at a NewRats concert! a NewRats concert! Who is your bias?",
-        "image":"",
+        image:"img/newrats.jpg",
         choices:[
         {text:"Hanni -> Hammi", drinks: ["Strawberry Matcha"]},
         {text:"Danielle -> Scurrielle", drinks: ["Injeolmi Matcha"]},
@@ -54,7 +65,7 @@ const questions = [
     },
     {
         question:"Whew, that was a fun concert! What are you replenishing your energy with?",
-        "image":"",
+        image:"img/food.jpg",
         choices:[
         {text:"Whole wheat bread", drinks: ["Matcha Latte"]},
         {text:"Plums", drinks: ["Strawberry Matcha", "Blueberry Matcha Latte"]},
@@ -64,7 +75,7 @@ const questions = [
     },
     {
         question:"You’re hanging out with your new rat friends. What’s the plan for the evening?",
-        "image":"",
+        image:"img/fun.jpg",
         choices:[
         {text:"Escape room maze", drinks: ["Einspanner Latte", "Banana Matcha"]},
         {text:"Watching Ratatouille", drinks: ["Hojicha Latte"]},
@@ -74,7 +85,7 @@ const questions = [
     },
     {
         question:"The perfect end to the evening is...",
-        "image":"",
+        image:"img/ending.jpg",
         choices:[
         {text:"Snuggled up with the rats and a blanket having a thoughtful conversation", drinks: ["Injeolmi Matcha", "Hojicha Latte"]},
         {text:"Drinks, drinks, and more drinks!", drinks: ["Matcha Latte"]},
@@ -88,6 +99,7 @@ let currentQuestionIndex = 0;
 
 function renderQuestion() {
     const question = questions[currentQuestionIndex]; 
+    document.getElementById("story-image").src = question.image;
     document.getElementById("question-text").innerText = question.question;
 
     const choicesContainer = document.getElementById("choices-container");
@@ -96,6 +108,7 @@ function renderQuestion() {
     question.choices.forEach((choice) => {
         const btn = document.createElement("button");
         btn.innerText = choice.text;
+        btn.className = "choices";
         btn.onclick = () => handleAnswer(choice.drinks);
         choicesContainer.appendChild(btn);
     });
@@ -116,9 +129,12 @@ function handleAnswer(selectedDrinks) {
 }
 
 function showResult() {
+  document.getElementById("story-image").style.display = "none";
   const resultContainer = document.getElementById("quiz-result");
   const choicesContainer = document.getElementById("choices-container");
   const questionText = document.getElementById("question-text");
+  const resultImage = document.getElementById("results-image");
+
 
   // Hide quiz interface
   questionText.style.display = "none";
@@ -140,16 +156,25 @@ function showResult() {
   // Pick one randomly if tied
   const finalDrink = topDrinks[Math.floor(Math.random() * topDrinks.length)];
   resultContainer.innerText = `Your drink match is: ${finalDrink}`;
+  console.log("Set image src to:", resultImage.src);
+  const img = document.getElementById("results-image");
+img.src = "results-img/matcha.jpeg";
+
+  resultImage.src = drinkImages[finalDrink];
+  resultImage.style.display = "block";
+
+
 }
 
-function startGame() {
-  // Hide the start button
-  const startButton = document.querySelector(".start-button");
-  startButton.style.display = "none";
+  function startGame() {
+    document.querySelector(".home-image").style.display= "none";
+    document.querySelector(".main-text").style.display= "none";
+    document.querySelector(".start-button").style.display = "none";
+    document.querySelector(".quiz-container").style.display = "block";
+    renderQuestion();
+  }
 
-  // Show the quiz container
-  document.querySelector(".quiz-container").style.display = "block";
+  document.querySelector(".start-button").addEventListener("click", startGame);
 
-renderQuestion();
-}
+
 });

@@ -1,7 +1,7 @@
 body{
     background-color: #C2ECFF;
     margin: 0;
-    min-height: 100vh; 
+    height: 100%;
     padding: 40px 0;
     display: flex;
     align-items: center;
@@ -15,50 +15,74 @@ body{
     src: url('pixelpoiiz.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'Milky';
+    src: url('milky.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Penelope';
+    src: url('Penelope.ttf') format('truetype');
+}
+
+
 .wrapper{
-        background-color: #FFFABD; 
-  border-radius: 20px;
-   background-repeat: no-repeat;
-   width: 700px;
-   min-height: 100vh;
-   display: flex;
+    background-color: #FFFABD; 
+    border-radius: 20px;
+    background-repeat: no-repeat;
+    width: 90vw;
+    max-width: 700px;
+    height: 90vh;
+    min-height: 700px;
+    display: flex;
     align-items: center;
-   justify-content: center;
-   flex-direction: column;
+    justify-content: flex-start;
+    flex-direction: column;
+    overflow: hidden;
 }
 
 h1{
-    font-size: 50px;
-    
+    font-size: 48px;
+    margin-bottom: 20px;
     font-family: 'Pixel', sans-serif;
     text-align: center;
+    margin: 0;
+    margin-top: 20px;
 
 }
 
 p{
-     font-size: 20px;
-   
+     font-size: 20px;  
     font-family: 'Pixel', sans-serif;
     text-align: center;
 }
 
-.rat{
-    display: block;
-    margin: 0 auto;
-    margin-bottom: 10px;
-    border-radius: 10px;
+.home-image{
+    margin-top: -100px;
+    width: 500px;
+    height: auto;
+    
 }
 
-.start-btn{
-    /* display: flex;
+.image-container{
+    max-width: 100%; /* Set max width of image container */
+    margin: 20px 0;
+    display: flex;
     justify-content: center;
-    align-items: center; */
-    
-    margin: 0 auto;
-    background-color: #FFFABD;
+    align-items: center;
+}
+
+.image-container img{
+    width: 250px; /* Make the image fill its container */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 30px;
+}
+
+.start-button{ 
+    background-color: #FFDBF7;
     border: none;
     border-radius: 30px;
-    width: 150px;
+    width: 160px;
     height: 50px;
     font-family: 'Pixel',sans-serif;
     font-size: 20px;
@@ -69,9 +93,33 @@ p{
     box-shadow 0.3s ease;
 }
 
-.start-btn:hover,
-.start-btn:focus {
+.start-buttonn:hover,
+.start-button:focus {
   background: #FFFABD;
   transform: scale(1.08);     /* ⬅️ makes the button grow by 8% */
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.question-text{
+    font-family: 'Pixel',sans-serif;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.choices{
+    width: 400px;
+height: 50px;
+margin-bottom: 10px;
+border-radius: 30px;
+background: #FCE1F6;
+border: none;
+
+}
+
+.choices-box{
+    display: flex;
+  flex-direction: column; /* stack buttons vertically */
+  align-items: center;     /* center them horizontally */
+  gap: 12px;               /* space between buttons */
+  width: 100%;
 }

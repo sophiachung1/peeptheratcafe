@@ -9,21 +9,26 @@
 <body>
   <div class="wrapper">
     <h1>peep the rat cafe</h1>
- <button class="start-button" onclick="startGame()">Start</button>
+    <img class="home-image" src="img/homescreen.jpg" alt="homescreen image"/>
+    <p class="main-text">find the perfect drink for you!</p>
+ <button class="start-button">Start</button>
  
  <div class="quiz-container" style="display: none;">
-    <div id="question-text"></div>
-   <div class="image">
-    <img />
+    <div class="question-text" id="question-text"></div>
+   <div class="image-container">
+    <img id="story-image" />
    </div>
+   <div class="choices-box">
+   <div class="choices" id="choices-container"></div>
 
-   <div id="choices-container"></div>
-   <div id="quiz-result"></div>
+   <div id="quiz-result">
+    <img class="results-image" id="results-image" alt="drink result" style="display:none"/>
+   </div>
 </div>
 
 </div>
 
-<script src="game.js"></script>
+<script src="javascript/game.js"></script>
 </body>
 </html>
 
