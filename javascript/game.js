@@ -129,21 +129,15 @@ function handleAnswer(selectedDrinks) {
 }
 
 function showResult() {
+
+    // Hide quiz UI
   document.getElementById("story-image").style.display = "none";
-  const resultContainer = document.getElementById("quiz-result");
-  const choicesContainer = document.getElementById("choices-container");
-  const questionText = document.getElementById("question-text");
-  const resultImage = document.getElementById("results-image");
+  document.getElementById("question-text").style.display = "none";
+  document.getElementById("choices-container").style.display = "none";
 
-
-  // Hide quiz interface
-  questionText.style.display = "none";
-  choicesContainer.style.display = "none";
-
-  // Find highest score
+  // Determine drink result
   let highestScore = -1;
   let topDrinks = [];
-
   for (const drink in drinks) {
     if (drinks[drink] > highestScore) {
       highestScore = drinks[drink];
@@ -152,24 +146,22 @@ function showResult() {
       topDrinks.push(drink);
     }
   }
-
-  // Pick one randomly if tied
   const finalDrink = topDrinks[Math.floor(Math.random() * topDrinks.length)];
-  resultContainer.innerText = `Your drink match is: ${finalDrink}`;
-  console.log("Set image src to:", resultImage.src);
-  const img = document.getElementById("results-image");
-img.src = "results-img/matcha.jpeg";
-
+  
+  // Display result
+  const resultContainer = document.getElementById("quiz-result");
+  resultContainer.style.display = "block";
+  document.getElementById("result-text").innerText = `Your drink match is: ${finalDrink}`;
+  const resultImage = document.getElementById("results-image");
   resultImage.src = drinkImages[finalDrink];
   resultImage.style.display = "block";
-
-
 }
 
   function startGame() {
     document.querySelector(".home-image").style.display= "none";
     document.querySelector(".main-text").style.display= "none";
     document.querySelector(".start-button").style.display = "none";
+    document.querySelector(".results-image").style.display = "none";
     document.querySelector(".quiz-container").style.display = "block";
     renderQuestion();
   }

@@ -30,15 +30,17 @@ body{
     background-color: #FFFABD; 
     border-radius: 20px;
     background-repeat: no-repeat;
-    width: 90vw;
+    width: 90%;
     max-width: 700px;
     height: 90vh;
+    padding: 20px;
     min-height: 700px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     flex-direction: column;
     overflow: hidden;
+    margin: 0 auto;
 }
 
 h1{
@@ -122,4 +124,33 @@ border: none;
   align-items: center;     /* center them horizontally */
   gap: 12px;               /* space between buttons */
   width: 100%;
+}
+
+.results-image {
+  width: 90%;           /* Scale with wrapper */
+  max-width: 600px; 
+  max-height: 80vh;       /* Avoid edge overflow */
+  height: auto;          /* Keep aspect ratio */
+  display: block;         /* Show image */
+  object-fit: contain;   /* Keep entire image visible */
+}
+
+.img-container {
+  max-width: 100%;
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Add this */
+   /* Optional: also round container corners */
+}
+
+
+#quiz-result {
+  text-align: center;
+margin-top: -20px;
+}
+
+.result-text{
+    font-family: 'Pixel',sans-serif;
 }
