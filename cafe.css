@@ -154,3 +154,37 @@ margin-top: -20px;
 .result-text{
     font-family: 'Pixel',sans-serif;
 }
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 32px;
+  }
+
+  p, .question-text, .result-text {
+    font-size: 16px;
+  }
+
+  .home-image {
+    max-width: 100%;
+    width: 90%;
+  }
+
+  .start-button,
+  .choices {
+    max-width: 400px;
+    width: 100%;
+    font-size: 16px;
+    height: 45px;
+  }
+
+  .wrapper {
+    width: 95%;
+    height: auto;
+    padding: 16px;
+    overflow-y: auto;
+  }
+
+  /* .choices-box {
+    width: 100%;
+  } */
+}
