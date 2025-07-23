@@ -159,14 +159,19 @@ margin-top: -20px;
   h1 {
     font-size: 32px;
   }
-
+  
   p, .question-text, .result-text {
     font-size: 16px;
   }
 
   .home-image {
-    max-width: 100%;
-    width: 90%;
+    
+    width: 500px;
+    height: auto;
+  }
+
+  .start-button{
+    margin-top: 20px;
   }
 
   .start-button,
@@ -178,10 +183,17 @@ margin-top: -20px;
   }
 
   .wrapper {
-    width: 95%;
-    height: auto;
-    padding: 16px;
-    overflow-y: auto;
+    max-width: 700px;
+    width: 80%;
+    height: 100svh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+    margin: 0 auto;
+    
   }
 
   /* .choices-box {
