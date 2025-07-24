@@ -53,7 +53,7 @@ const questions = [
         ]
     },
     {
-        question:"You are suddenly at a NewRats concert! a NewRats concert! Who is your bias?",
+        question:"You are suddenly at a NewRats concert! Who is your bias?",
         image:"img/newrats.jpg",
         choices:[
         {text:"Hanni -> Hammi", drinks: ["Strawberry Matcha"]},
